@@ -6,6 +6,7 @@ import {
   RiTeamLine,
   RiBarChart2Line,
   RiSettings3Line,
+  RiPieChart2Line,
 } from "react-icons/ri";
 import "../assets/user.JPG";
 
@@ -23,6 +24,11 @@ const Sidebar = () => {
       title: "Charts",
       link: "charts",
       icon: <RiBarChart2Line className="w-7 h-7" />,
+    },
+    {
+      title: "Stats",
+      link: "stats",
+      icon: <RiPieChart2Line className="w-7 h-7" />,
     },
     {
       title: "Settings",
