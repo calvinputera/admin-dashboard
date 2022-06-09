@@ -1,7 +1,79 @@
-import React from "react";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import {
+  RiAppsLine,
+  RiHome5Line,
+  RiTeamLine,
+  RiBarChart2Line,
+  RiSettings3Line,
+} from "react-icons/ri";
+import "../assets/user.JPG";
 
 const Sidebar = () => {
-  return <div>Sidebar</div>;
+  const [border, setBorder] = useState("2px solid #334155");
+
+  const menus = [
+    { title: "Home", link: "home", icon: <RiHome5Line className="w-7 h-7" /> },
+    {
+      title: "Member",
+      link: "member",
+      icon: <RiTeamLine className="w-7 h-7" />,
+    },
+    {
+      title: "Charts",
+      link: "charts",
+      icon: <RiBarChart2Line className="w-7 h-7" />,
+    },
+    {
+      title: "Setting",
+      link: "settings",
+      icon: <RiSettings3Line className="w-7 h-7" />,
+    },
+  ];
+
+  const activeLink =
+    "flex items-center gap-x-8 mb-5 px-4 w-auto py-1 rounded-lg text-slate-700 text-md font-semibold";
+  const normalLink =
+    "flex items-center gap-x-8 mb-5 px-4 w-auto py-1 rounded-lg text-md text-slate-500 hover:text-slate-700";
+
+  return (
+    <div className="w-60 p-6 h-auto border-r text-slate-700 flex flex-col justify-between">
+      <div className="mb-12 flex gap-x-4 flex-col">
+        <div className="flex items-center gap-x-5 mb-10">
+          <RiAppsLine className="w-8 h-8" />
+          <h1 className="font-semibold text-xl">Dahsboard</h1>
+        </div>
+        {menus.map((menu) => (
+          <>
+            {
+              <NavLink
+                to={`/${menu.link}`}
+                key={menu.title}
+                style={({ isActive }) => ({
+                  border: isActive ? border : "",
+                })}
+                className={({ isActive }) =>
+                  isActive ? activeLink : normalLink
+                }
+              >
+                {menu.icon}
+                <span>{menu.title}</span>
+              </NavLink>
+            }
+          </>
+        ))}
+      </div>
+      <div className="w-24 h-24 rounded-full border-2 border-slate-300 m-auto flex justify-center items-center relative">
+        <img
+          src={require("../assets/user.JPG")}
+          alt="user"
+          className="w-20 h-20 rounded-full"
+        />
+        <span className="w-4 h-4 bg-green-500 rounded-full absolute bottom-2 right-0"></span>
+        <p className="absolute top-24 text-sm font-semibold">Calvin</p>
+      </div>
+    </div>
+  );
 };
 
 export default Sidebar;
