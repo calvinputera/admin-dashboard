@@ -25,7 +25,7 @@ const Sidebar = () => {
       icon: <RiBarChart2Line className="w-7 h-7" />,
     },
     {
-      title: "Setting",
+      title: "Settings",
       link: "settings",
       icon: <RiSettings3Line className="w-7 h-7" />,
     },
@@ -41,7 +41,7 @@ const Sidebar = () => {
       <div className="mb-12 flex gap-x-4 flex-col">
         <div className="flex items-center gap-x-5 mb-10">
           <RiAppsLine className="w-8 h-8" />
-          <h1 className="font-semibold text-xl">Dahsboard</h1>
+          <h1 className="font-semibold text-xl">Dashboard</h1>
         </div>
         {menus.map((menu) => (
           <>
@@ -63,14 +63,13 @@ const Sidebar = () => {
           </>
         ))}
       </div>
-      <div className="w-24 h-24 rounded-full border-2 border-slate-300 m-auto flex justify-center items-center relative">
+      <div className="w-24 h-24 rounded-full border-4 border-green-400 hover:border-0 hover:transition-all hover:duration-100 hover:cursor-pointer m-auto flex justify-center items-center relative">
         <img
           src={require("../assets/user.JPG")}
           alt="user"
-          className="w-20 h-20 rounded-full"
+          className="w-20 h-20 rounded-full hover:border-4 border-green-400"
         />
-        <span className="w-4 h-4 bg-green-500 rounded-full absolute bottom-2 right-0"></span>
-        <p className="absolute top-24 text-sm font-semibold">Calvin</p>
+        <p className="absolute top-24 text-base font-semibold">Calvin</p>
       </div>
     </div>
   );
